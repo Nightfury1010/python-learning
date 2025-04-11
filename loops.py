@@ -1,51 +1,51 @@
-# #while loops
-# i =1
-# while i <= 5:
-#     print('*' * i)
-#     i += 1
-# print ('Done')
+#while loops
+i =1
+while i <= 5:
+    print('*' * i)
+    i += 1
+print ('Done')
 
-# #guess the number game
-# secret_number = 9
-# guess_count = 0
-# guess_limit = 3
-# guess_number = 0
-# while  guess_count < guess_limit:
-#     guess_number = int(input('Guess the number: '))
-#     guess_count += 1
-#     if guess_number == secret_number:
-#         print('You won!')
-#         break
-# else:
-#     print('You lose!')
+#guess the number game
+secret_number = 9
+guess_count = 0
+guess_limit = 3
+guess_number = 0
+while  guess_count < guess_limit:
+    guess_number = int(input('Guess the number: '))
+    guess_count += 1
+    if guess_number == secret_number:
+        print('You won!')
+        break
+else:
+    print('You lose!')
 
 
-# #simple car game using while loop
-# print('''
-# start - to start the car
-# stop - to stop the car
-# quit - to exit
-# ''')
-# started = False
-# stopped = False
-# while True:
-#     command = input('> ').lower()
-#     if command == 'start':
-#         if started:
-#             print('Car is already started')
-#         else:
-#             started = True
-#             print('Car started...')
-#     elif command == 'stop': 
-#         if stopped:
-#             print('Car is already stopped')
-#         else:
-#             stopped = True
-#             print('Car stopped...')
-#     elif command == 'quit':
-#         break
-#     else:
-#         print('wrong command')
+#simple car game using while loop
+print('''
+start - to start the car
+stop - to stop the car
+quit - to exit
+''')
+started = False
+stopped = False
+while True:
+    command = input('> ').lower()
+    if command == 'start':
+        if started:
+            print('Car is already started')
+        else:
+            started = True
+            print('Car started...')
+    elif command == 'stop': 
+        if stopped:
+            print('Car is already stopped')
+        else:
+            stopped = True
+            print('Car stopped...')
+    elif command == 'quit':
+        break
+    else:
+        print('wrong command')
 
 
 
