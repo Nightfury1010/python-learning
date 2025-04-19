@@ -1,0 +1,17 @@
+why numpy
+- faster than lists
+-uses fixed types
+-contigous memory
+
+
+benifits:
+1. SIMD Vector processing
+2. Effective cache Utilization
+
+
+applicationos numpy
+-mathematics(matlab replacement)
+-plotting(Matplotlib)
+-backend(pandas,Connect 4, Digital Photography)
+-machine learing
+
