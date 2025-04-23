@@ -156,6 +156,79 @@ covid_df['total_deaths'] = covid_df.new_deaths.cumsum()
 covid_df['total_tests'] = covid_df.new_tests.cumsum() + initial_tests
 print(covid_df)
 
+#Merging data from multiple sources
+locations_df = pd.read_csv('locations.csv')
+print(locations_df)
+
+print(locations_df[locations_df.location == "Italy"])
+
+covid_df['location'] = "Italy"
+print(covid_df)
+
+merged_df = covid_df.merge(locations_df, on="location")
+print(merged_df)    
+
+merged_df['cases_per_million'] = merged_df.total_cases * 1e6 / merged_df.population
+merged_df['deaths_per_million'] = merged_df.total_deaths * 1e6 / merged_df.population
+merged_df['tests_per_million'] = merged_df.total_tests * 1e6 / merged_df.population
+print(merged_df)
+
+
+#writing back to files
+
+result_df = merged_df[['date',
+                       'new_cases', 
+                       'total_cases', 
+                       'new_deaths', 
+                       'total_deaths', 
+                       'new_tests', 
+                       'total_tests', 
+                       'cases_per_million', 
+                       'deaths_per_million', 
+                       'tests_per_million']]
+
+print(result_df)
+
+print(result_df.to_csv('results.csv', index=None))
+
+#basic plotting with pandas
+import matplotlib.pyplot as plot
+
+result_df.set_index('date', inplace=True)
+result_df.new_cases.plot()
+
+print(result_df.loc['2020-09-01'])
+result_df.new_cases.plot()
+result_df.new_deaths.plot()
+plot.show()
+
+result_df.total_cases.plot()
+result_df.total_deaths.plot()
+plot.show()
+
+death_rate = result_df.total_deaths / result_df.total_cases
+death_rate.plot(title='Death Rate')
+plot.show()
+
+positive_rates = result_df.total_cases / result_df.total_tests
+positive_rates.plot(title='Positive Rate')
+plot.show()
+
+covid_month_df.new_cases.plot(kind='bar')
+plot.show()
+
+covid_month_df.new_tests.plot(kind='bar')
+plot.show()
+
+
+
+
+
+
+
+
+
+
 
 
 
